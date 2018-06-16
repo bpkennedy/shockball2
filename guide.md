@@ -7,6 +7,7 @@ Shockball Guide
 
 * [Understanding Shockball](#understanding-the-game)
   * [Player Training](#player-training)
+  * [Team Strategy](#team-strategy)
   * [Match Simulation](#match-simulation)
 * [Playing the Shockball](#playing-the-game)
   * As Player:
@@ -41,6 +42,12 @@ Players can train to certain regimens based on any role they prefer:
 * **General** training: No stat changes, but Morale/Leadership/Energy increase slightly.
 * **Rest** training: All skills slight decay, but Morale/Energy significant increase and slight Leadership increase.
 * **None Selected** training: All skills slight decay as well as Morale and Leadership.  Only slight Energy increase.
+
+### Team Strategy
+Team Owners can pick a team strategy from the Tactics tab of the Squad page. Strategies currently offer player skill modifiers at match time.
+* For Offensive, the Center receives boosts to throwing/passing, the Wings receive boosts to throwing/passing and penalties to toughness/blocking, the Guard receives penalties to toughness/blocking.
+* For Defensive, the Center receives penalties to throwing/passing, the Wings receive penalties to throwing/passing and boosts to toughness/blocking, the Guard receives boosts to toughness/blocking.
+* For Normal, no changes are made
 
 ### Match Simulation
 To describe how the match simulation engine works, I will walk through an example of a tick.  I will preface once that everything here is **current** and probably will evolve and change as the game is further developed.
