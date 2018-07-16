@@ -95,37 +95,62 @@ Each day, you may select a training regimen for your player. Every 24 hours your
 ### What skills change when I train
 Here are the skill changes:
 ```javascript
-if (player.regimen.value === 'Wing') {
+if (player.lastTrained === 'Wing') {
+    // primary skill passing, secondary endurance and throwing
     player.blocking = decrement(player.blocking, .25, player.blockingCap)
     player.throwing = increment(player.throwing, .5, player.throwingCap)
+    player.throwingTotalPoints = player.throwingTotalPoints + .5
+    player.throwingTotalSessions = player.throwingTotalSessions + 1
     player.passing = increment(player.passing, 1.5, player.passingCap)
+    player.passingTotalPoints = player.passingTotalPoints + 1.5
+    player.passingTotalSessions = player.passingTotalSessions + 1
     player.endurance = increment(player.endurance, .25, player.enduranceCap)
+    player.enduranceTotalPoints = player.enduranceTotalPoints + .25
+    player.enduranceTotalSessions = player.enduranceTotalSessions + 1
     player.toughness = decrement(player.toughness, .25, player.toughnessCap)
     player.vision = increment(player.vision, .25, player.visionCap)
+    player.visionTotalPoints = player.visionTotalPoints + .25
+    player.visionTotalSessions = player.visionTotalSessions + 1
     player.morale = increment(player.morale, 1)
     player.energy = decrement(player.energy, 5)
     player.leadership = increment(player.leadership, .25)
-  } else if (player.regimen.value === 'Guard') {
+  } else if (player.lastTrained === 'Guard') {
+    // primary skill blocking, secondary toughness and throwing
     player.blocking = increment(player.blocking, 1.5, player.blockingCap)
+    player.blockingTotalPoints = player.blockingTotalPoints + 1.5
+    player.blockingTotalSessions = player.blockingTotalSessions + 1
     player.throwing = increment(player.throwing, .5, player.throwingCap)
+    player.throwingTotalPoints = player.throwingTotalPoints + .5
+    player.throwingTotalSessions = player.throwingTotalSessions + 1
     player.passing = decrement(player.passing, .25, player.passingCap)
     player.endurance = decrement(player.endurance, .25, player.enduranceCap)
     player.toughness = increment(player.toughness, .25, player.toughnessCap)
+    player.toughnessTotalPoints = player.toughnessTotalPoints + .25
+    player.toughnessTotalSessions = player.toughnessTotalSessions + 1
     player.vision = increment(player.vision, .25, player.visionCap)
+    player.visionTotalPoints = player.visionTotalPoints + .25
+    player.visionTotalSessions = player.visionTotalSessions + 1
     player.morale = increment(player.morale, 1)
     player.energy = decrement(player.energy, 5)
     player.leadership = increment(player.leadership, .25)
-  } else if (player.regimen.value === 'Center') {
+  } else if (player.lastTrained === 'Center') {
+    // primary skill throwing, secondary vision and endurance
     player.blocking = decrement(player.blocking, .25, player.blockingCap)
     player.throwing = increment(player.throwing, 1.5, player.throwingCap)
+    player.throwingTotalPoints = player.throwingTotalPoints + 1.5
+    player.throwingTotalSessions = player.throwingTotalSessions + 1
     player.passing = increment(player.passing, .0, player.passingCap)
     player.endurance = increment(player.endurance, .75, player.enduranceCap)
+    player.enduranceTotalPoints = player.enduranceTotalPoints + .75
+    player.enduranceTotalSessions = player.enduranceTotalSessions + 1
     player.toughness = decrement(player.toughness, .25, player.toughnessCap)
     player.vision = increment(player.vision, .25, player.visionCap)
+    player.visionTotalPoints = player.visionTotalPoints + .25
+    player.visionTotalSessions = player.visionTotalSessions + 1
     player.morale = increment(player.morale, 1)
     player.energy = decrement(player.energy, 5)
     player.leadership = increment(player.leadership, .25)
-  } else if (player.regimen.value === 'General') {
+  } else if (player.lastTrained === 'General') {
     // all skills unchanged with a slow energy recovery
     player.blocking = increment(player.blocking, .0, player.blockingCap)
     player.throwing = increment(player.throwing, .0, player.throwingCap)
@@ -136,7 +161,7 @@ if (player.regimen.value === 'Wing') {
     player.morale = increment(player.morale, 1)
     player.energy = increment(player.energy, 2)
     player.leadership = increment(player.leadership, .25)
-  } else if (player.regimen.value === 'Rest') {
+  } else if (player.lastTrained === 'Rest') {
     // all skills suffer .25 decay with a fast energy recovery
     player.blocking = decrement(player.blocking, .25, player.blockingCap)
     player.throwing = decrement(player.throwing, .25, player.throwingCap)
